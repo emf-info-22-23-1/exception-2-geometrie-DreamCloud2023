@@ -20,11 +20,7 @@ public class Ctrl implements ICtrlIhm {
             refIhm.afficheResultatCircle(String.valueOf(refWorker.calcRadiusCircleFromArea(valueDouble)));
         } catch (NumberFormatException ex) {
 
-            System.out.println("-------------------------------------");
-            System.out.println("Il y a eu une exception");
-            System.out.println("Le msg est " + ex.getMessage());
-            System.out.println("-------------------------------------");
-            System.out.println("-------------------------------------");
+            refIhm.afficheMessage("Veuillez entrer une valeur valide pour le rayon du cercle  ( " + value + " invalide)");
         }
     }
 
@@ -38,11 +34,23 @@ public class Ctrl implements ICtrlIhm {
         }
          catch (NumberFormatException ex) {
 
-            System.out.println("-------------------------------------");
-            System.out.println("Il y a eu une exception");
-            System.out.println("Le msg est " + ex.getMessage());
-            System.out.println("-------------------------------------");
-            System.out.println("-------------------------------------");
+             try{
+                 double valueAreaDouble = Double.parseDouble(valueArea);
+             }
+             catch(NumberFormatException ex1) {
+              
+                 refIhm.afficheMessage("Veuillez entrer un valeur valide pour l'air du rectangle ( " + valueArea + " invalide )");
+                
+             }
+             
+             try{
+                 double valueLongueurDouble = Double.parseDouble(valueLongueur);
+             }
+             catch(NumberFormatException ex1) {
+              
+                 refIhm.afficheMessage("Veuillez entrer un valeur valide pour la largeur du rectangle ( " + valueLongueur + " invalide )");
+                
+             }
         }
     }
 
